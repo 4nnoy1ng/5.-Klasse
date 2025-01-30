@@ -19,6 +19,17 @@ app.get("/people", (req, res) => {
   res.send(data);
 });
 
+app.get("/people/:id", (req, res) => {
+  let id = req.params.id;
+  res.send(data[id]);
+});
+
+app.delete("/people/:id", (req, res) => {
+  let id = req.params.id;
+  data.splice(id, 1);
+  res.send("deleted");
+});
+
 app.post("/people", (req, res) => {
   data.push(req.body);
 
